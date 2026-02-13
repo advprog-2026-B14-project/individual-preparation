@@ -1,0 +1,59 @@
+plugins {
+	java
+	jacoco
+	id("org.springframework.boot") version "4.0.2"
+	id("io.spring.dependency-management") version "1.1.7"
+	id("org.sonarqube") version "7.1.0.6387"
+	checkstyle
+}
+
+group = "com.example"
+version = "0.0.1-SNAPSHOT"
+description = "Individual preparation for the Advanced Programming course at the Faculty of Computer Science Universitas Indonesia"
+
+java {
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(21))
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-webmvc")
+	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.test {
+	filter {
+		excludeTestsMatching("*FunctionalTest")
+	}
+
+	finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+	dependsOn(tasks.test)
+	reports {
+		xml.required = true
+		html.required = true
+	}
+}
+
+tasks.named<Test>("test") {
+	useJUnitPlatform()
+}
+
+sonar {
+	properties {
+		property("sonar.projectKey", "advprog-2026-B14-project_individual-preparation")
+		property("sonar.organization", "advprog-2026-b14-project")
+	}
+}
+
+checkstyle {
+	isIgnoreFailures = true
+}
