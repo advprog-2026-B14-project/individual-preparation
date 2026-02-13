@@ -116,4 +116,24 @@ class IndividualprepApplicationTests {
 		double result2 = arithmeticUtility.add(-5.0, -3.0);
 		assertEquals(-8.0, result2, 0.0001);
 	}
+
+	@Test
+	void testVectorSubtract() {
+		double[] v1 = {5.0, 10.0, 15.0};
+		double[] v2 = {2.0, 4.0, 6.0};
+		double[] expected = {3.0, 6.0, 9.0};
+
+		assertArrayEquals(expected, vectorUtility.subtract(v1, v2));
+	}
+
+	@Test
+	void testVectorSubtractInvalidLength() {
+		double[] v1 = {1.0, 2.0}; // Panjang 2
+		double[] v2 = {1.0, 2.0, 3.0}; // Panjang 3
+
+		// Harus error karena panjang beda
+		assertThrows(IllegalArgumentException.class, () -> {
+			vectorUtility.subtract(v1, v2);
+		});
+	}
 }
