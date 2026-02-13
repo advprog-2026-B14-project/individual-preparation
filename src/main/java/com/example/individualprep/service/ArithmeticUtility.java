@@ -17,9 +17,11 @@ public class ArithmeticUtility {
         return o1*o2;
     }
 
-    public double divide(double o1, double o2) {
-        // TODO: Implement me properly!
-        return 0.0;
+    public double divide(double o1, double o2)  {
+        if (o2 == 0.0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return o1 / o2;
     }
 
     public double exponent(double o1, int n) {

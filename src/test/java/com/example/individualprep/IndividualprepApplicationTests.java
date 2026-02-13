@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 class IndividualprepApplicationTests {
@@ -86,6 +87,25 @@ class IndividualprepApplicationTests {
 		double expected = 5.0;
 		double result = vectorUtility.norm(vector);
 		assertEquals(expected, result, 0.0001);
+	}
+
+	@Test
+	void testArithmeticDivide() {
+		double o1 = 10.0;
+		double o2 = 2.0;
+		double expected = 5.0;
+
+		assertEquals(expected, arithmeticUtility.divide(o1, o2));
+	}
+
+	@Test
+	void testArithmeticDivideByZero() {
+		double o1 = 10.0;
+		double o2 = 0.0;
+
+		assertThrows(ArithmeticException.class, () -> {
+			arithmeticUtility.divide(o1, o2);
+		});
 	}
 
 	@Test
