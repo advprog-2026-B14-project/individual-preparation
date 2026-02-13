@@ -80,4 +80,11 @@ class IndividualprepApplicationTests {
 		assertArrayEquals(expected, result);
 	}
 
+	@Test
+	void testVectorNorm(){
+		double[] vector = {3.0, 4.0};
+		double expected = 5.0;
+		double result = vectorUtility.norm(vector);
+		assertEquals(expected, result, 0.0001);
+	}
 }
