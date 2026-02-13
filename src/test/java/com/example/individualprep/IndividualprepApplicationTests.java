@@ -106,5 +106,11 @@ class IndividualprepApplicationTests {
 		assertThrows(ArithmeticException.class, () -> {
 			arithmeticUtility.divide(o1, o2);
 		});
+	void testArithmeticAdd(){
+		double result = arithmeticUtility.add(5.0, 3.0);
+		assertEquals(8.0, result, 0.0001);
+
+		double result2 = arithmeticUtility.add(-5.0, -3.0);
+		assertEquals(-8.0, result2, 0.0001);
 	}
 }
