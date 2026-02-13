@@ -26,7 +26,10 @@ public class VectorUtility {
     }
     
     public double norm(double[] v1) {
-        // TODO: Implement me properly!
-        return 0.0;
+        double sumOfSquares = 0.0;
+        for (double value : v1){
+            sumOfSquares += value * value;
+        }
+        return Math.sqrt(sumOfSquares);
     }
 }
