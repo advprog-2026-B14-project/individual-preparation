@@ -60,4 +60,14 @@ class IndividualprepApplicationTests {
 		assertArrayEquals(new double[]{expected}, new double[]{result});
 	}
 
+	@Test
+	void testArithmeticMultiply() {
+		double o1 = 5.0;
+		double o2 = 4.0;
+		double expected = 20.0;
+
+		double result = arithmeticUtility.multiply(o1, o2);
+		assertEquals(expected, result);
+	}
+
 }
