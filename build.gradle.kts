@@ -3,6 +3,7 @@ plugins {
 	jacoco
 	id("org.springframework.boot") version "4.0.2"
 	id("io.spring.dependency-management") version "1.1.7"
+	id("org.sonarqube") version "7.1.0.6387"
 }
 
 group = "com.example"
@@ -35,8 +36,19 @@ tasks.test {
 
 tasks.jacocoTestReport {
 	dependsOn(tasks.test)
+	reports {
+		xml.required = true
+		html.required = true
+	}
 }
 
 tasks.named<Test>("test") {
 	useJUnitPlatform()
+}
+
+sonar {
+	properties {
+		property "sonar.projectKey", "advprog-2026-B14-project_individual-preparation"
+		property "sonar.organization", "advprog-2026-b14-project"
+	}
 }
