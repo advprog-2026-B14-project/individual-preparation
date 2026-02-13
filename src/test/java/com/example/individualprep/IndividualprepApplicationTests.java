@@ -44,8 +44,20 @@ class IndividualprepApplicationTests {
 	void testVectorAdd() {
 		double[] v1 = {1.0, 2.0, 3.0};
 		double[] v2 = {4.0, 5.0, 6.0};
+
 		double[] expected = {5.0, 7.0, 9.0};
 		double[] result = vectorUtility.add(v1, v2);
 		assertArrayEquals(expected, result);
 	}
+
+	@Test
+	void testArithmeticExponent() {
+		double base = 2.0;
+		int exponent = 3;
+
+		double expected = 8.0;
+		double result = arithmeticUtility.exponent(base, exponent);
+		assertArrayEquals(new double[]{expected}, new double[]{result});
+	}
+
 }
