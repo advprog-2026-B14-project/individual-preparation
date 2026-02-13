@@ -6,19 +6,38 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 @SpringBootTest
 class IndividualprepApplicationTests {
 	private VectorUtility vectorUtility;
+	private ArithmeticUtility arithmeticUtility;
 
 	@BeforeEach
 	void setUp() {
 		vectorUtility = new VectorUtility();
+		arithmeticUtility = new ArithmeticUtility();
 	}
 
 	@Test
 	void contextLoads() {
+	}
+
+	@Test
+	void testDotProduct() {
+		double[] v1 = {1.0, 3.0, -5.0};
+		double[] v2 = {4.0, -2.0, -1.0};
+		double expected = 3.0;
+		assertEquals(expected, vectorUtility.dotProduct(v1, v2));
+	}
+
+	@Test
+	void testSubtract() {
+		double o1 = 10.5;
+		double o2 = 5.5;
+		double expected = 5.0;
+		assertEquals(expected, arithmeticUtility.subtract(o1, o2));
 	}
 
 	@Test
@@ -29,5 +48,4 @@ class IndividualprepApplicationTests {
 		double[] result = vectorUtility.add(v1, v2);
 		assertArrayEquals(expected, result);
 	}
-
 }
