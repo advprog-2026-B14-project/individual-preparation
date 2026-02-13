@@ -70,4 +70,14 @@ class IndividualprepApplicationTests {
 		assertEquals(expected, result);
 	}
 
+	@Test
+	void testVectorMultiply() {
+		double[] v1 = {1.0, -2.0, 3.0};
+		int x = 2;
+		double[] expected = {2.0, -4.0, 6.0};
+
+		double[] result = vectorUtility.multiply(v1, x);
+		assertArrayEquals(expected, result);
+	}
+
 }
