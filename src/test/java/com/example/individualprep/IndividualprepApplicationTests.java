@@ -87,4 +87,13 @@ class IndividualprepApplicationTests {
 		double result = vectorUtility.norm(vector);
 		assertEquals(expected, result, 0.0001);
 	}
+
+	@Test
+	void testArithmeticAdd(){
+		double result = arithmeticUtility.add(5.0, 3.0);
+		assertEquals(8.0, result, 0.0001);
+
+		double result2 = arithmeticUtility.add(-5.0, -3.0);
+		assertEquals(-8.0, result2, 0.0001);
+	}
 }
