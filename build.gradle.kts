@@ -48,7 +48,7 @@ tasks.named<Test>("test") {
 
 sonar {
 	properties {
-		property "sonar.projectKey", "advprog-2026-B14-project_individual-preparation"
-		property "sonar.organization", "advprog-2026-b14-project"
+		property("sonar.projectKey", "advprog-2026-B14-project_individual-preparation")
+		property("sonar.organization", "advprog-2026-b14-project")
 	}
 }
